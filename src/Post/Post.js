@@ -64,6 +64,7 @@ class Post extends React.Component {
         title={this.state.post.title}
         body={this.state.post.body}
         comments={this.state.post.comments}
+        isSingleDisplayed={true}
       />
     );
   }

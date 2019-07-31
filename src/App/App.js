@@ -94,7 +94,7 @@ class App extends React.Component {
       this.setState({ filteredPosts: this.state.posts });
     } else {
       let filteredPosts = this.state.posts.filter(post =>
-        post.user.name.toLowerCase().startsWith(val.toLowerCase())
+        post.user.name.toLowerCase().includes(val.toLowerCase())
       );
       this.setState({ filteredPosts });
     }

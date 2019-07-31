@@ -17,13 +17,18 @@ let SinglePost = props => {
     <div className="Post">
       <p className="postAuthor">{props.author}</p>
       <p>
-        Title: <a href={`/post/${props.id}`}>{props.title}</a>
+        Title:{' '}
+        {props.isSingleDisplayed ? (
+          props.title
+        ) : (
+          <a href={`/post/${props.id}`}>{props.title}</a>
+        )}
       </p>
       <p>{props.body}</p>
       <p className="commentsBar">Comments:</p>
       <div className="comments">
         {props.comments.map((comment, index) => (
-          <div className="singleComment">
+          <div className="singleComment" key={index}>
             <p className="commentator">{comment.email}</p>
             <p className="commentName">{comment.name}</p>
             <p className="commentBody">{comment.body}</p>
