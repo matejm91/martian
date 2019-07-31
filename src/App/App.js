@@ -1,8 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './App.css';
 import SinglePost from '../Post/SinglePost';
 import Logger from '../Logger/Logger';
+
+const propTypes = {
+  filterPosts: PropTypes.func
+};
+
+const defaultProps = {
+  filterPosts: () => {}
+};
 
 class App extends React.Component {
   constructor(props) {
@@ -91,11 +100,6 @@ class App extends React.Component {
     }
   };
 
-  getThatPost = id => {
-    const post = this.state.posts.filter(post => post.id === id);
-    this.setState({ filteredPosts: post });
-  };
-
   render() {
     if (!this.state.isLoaded) {
       return null;
@@ -103,11 +107,14 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <input
-          type="text"
-          name="filterPosts"
-          onChange={e => this.filterPosts(e.target.value)}
-        />
+        <div className="searchBar">
+          <input
+            className="searchField"
+            type="text"
+            name="filterPosts"
+            onChange={e => this.filterPosts(e.target.value)}
+          />
+        </div>
 
         {this.state.filteredPosts.map(post => (
           <SinglePost
@@ -116,6 +123,7 @@ class App extends React.Component {
             author={post.user.name}
             title={post.title}
             body={post.body}
+            comments={post.comments}
             onPostClick={this.getPostById}
           />
         ))}
@@ -123,6 +131,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = propTypes;
+App.defaultProps = defaultProps;
 
 App = Logger(App, 'App');
 export default App;

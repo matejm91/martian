@@ -1,7 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './Login.css';
 import Logger from '../Logger/Logger';
+
+const propTypes = {
+  submitLogin: PropTypes.func
+};
+
+const defaultProps = {
+  submitLogin: () => {}
+};
 
 class Login extends React.Component {
   submitLogin = e => {
@@ -42,6 +51,9 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.defaultProps = defaultProps;
+Login.propTypes = propTypes;
 
 Login = Logger(Login, 'Login');
 export default Login;

@@ -1,6 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default function Logger(LoggerComponent, props) {
+const propTypes = {
+  LoggerComponent: PropTypes.Component,
+  props: PropTypes.object
+};
+
+const defaultProps = {
+  props: {}
+};
+
+function Logger(LoggerComponent, props) {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -19,3 +29,8 @@ export default function Logger(LoggerComponent, props) {
     }
   };
 }
+
+Logger.propTypes = propTypes;
+Logger.defaultProps = defaultProps;
+
+export default Logger;

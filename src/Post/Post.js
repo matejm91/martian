@@ -1,7 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './Post.css';
 import SinglePost from './SinglePost';
 import Logger from '../Logger/Logger';
+
+const propTypes = {
+  id: PropTypes.number
+};
 
 class Post extends React.Component {
   constructor(props) {
@@ -62,6 +68,8 @@ class Post extends React.Component {
     );
   }
 }
+
+Post.propTypes = propTypes;
 
 Post = Logger(Post, 'Post');
 export default Post;
