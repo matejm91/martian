@@ -36,10 +36,20 @@ class Login extends React.Component {
       <div className="Login">
         <form onSubmit={this.submitLogin}>
           <div>
-            <input type="text" name="username" />
+            <input
+              className="loginInput"
+              placeholder=" Username..."
+              type="text"
+              name="username"
+            />
           </div>
           <div>
-            <input type="password" name="password" />
+            <input
+              className="loginInput"
+              placeholder=" Password..."
+              type="password"
+              name="password"
+            />
           </div>
           <div>
             <button id="loginSubmit" type="submit">

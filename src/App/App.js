@@ -112,21 +112,23 @@ class App extends React.Component {
             className="searchField"
             type="text"
             name="filterPosts"
+            placeholder=" Search by author..."
             onChange={e => this.filterPosts(e.target.value)}
           />
         </div>
-
-        {this.state.filteredPosts.map(post => (
-          <SinglePost
-            key={post.id}
-            id={post.id}
-            author={post.user.name}
-            title={post.title}
-            body={post.body}
-            comments={post.comments}
-            onPostClick={this.getPostById}
-          />
-        ))}
+        <div className="postsSection">
+          {this.state.filteredPosts.map(post => (
+            <SinglePost
+              key={post.id}
+              id={post.id}
+              author={post.user.name}
+              title={post.title}
+              body={post.body}
+              comments={post.comments}
+              onPostClick={this.getPostById}
+            />
+          ))}
+        </div>
       </div>
     );
   }

@@ -13,25 +13,23 @@ const defaultProps = {
 };
 
 let SinglePost = props => {
-  console.log('%c⧭', 'color: #aa00ff', props);
   return (
     <div className="Post">
-      <p>{props.author}</p>
+      <p className="postAuthor">{props.author}</p>
       <p>
-        <a href={`/post/${props.id}`}>{props.title}</a>
+        Title: <a href={`/post/${props.id}`}>{props.title}</a>
       </p>
       <p>{props.body}</p>
-      <p>Comments:</p>
+      <p className="commentsBar">Comments:</p>
       <div className="comments">
-        {props.comments.map(comment => (
-          <div>
-            <p>{comment.email}</p>
-            <p>{comment.name}</p>
-            <p>{comment.body}</p>
+        {props.comments.map((comment, index) => (
+          <div className="singleComment">
+            <p className="commentator">{comment.email}</p>
+            <p className="commentName">{comment.name}</p>
+            <p className="commentBody">{comment.body}</p>
           </div>
         ))}
       </div>
-      <hr />
     </div>
   );
 };

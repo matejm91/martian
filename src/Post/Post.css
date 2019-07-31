@@ -3,4 +3,47 @@
   margin-left: 460px;
   text-align: left;
   margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #ef4059;
+  margin-bottom: 20px;
+}
+
+.postAuthor {
+  padding-top: 15px;
+  color: #ef4059;
+  font-weight: 800;
+}
+
+p {
+  padding: 0 10px;
+}
+
+.commentsBar {
+  margin: auto;
+  background-color: #ef4059;
+  width: 96%;
+  color: #3d3d3d;
+}
+
+.comments {
+  margin-top: 15px;
+}
+
+.singleComment {
+  margin: 2%;
+  padding: 5px;
+  border-radius: 0 20px 20px 20px;
+  background-color: #f5f5f5;
+}
+
+.commentator {
+  color: #000;
+}
+
+.commentName {
+  color: #8e8e8e;
+}
+
+.commentBody {
+  color: #8e8e8e;
 }
